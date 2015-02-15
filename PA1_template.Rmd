@@ -78,7 +78,12 @@ The 5-minute interval that contains the maximum number of steps: `r max.interval
 #Calculate and report the total number of missing values in the dataset 
 # (i.e. the total number of rows with NAs for steps)
 num.na <- sum(is.na(data$steps))
+```
+The total number of missing values is: `r num.na`  
 
+In order to replace any `r NA` values in the steps variable, we will scan the column for `r NA` values, and then replace them with the mean value that corresponds to that time interval.
+
+```{r, echo=TRUE}
 # We are going to replace the NA's with the mean value for that time interval and
 # we will create a new dataset that is equal to the original dataset but with the missing 
 # data filled in. We will Keep the same name. 
@@ -99,7 +104,7 @@ hist(sum.steps.date, col="light blue", xlab="Sum of Steps Per Day",
 mean.steps.day <- mean(sum.steps.date)
 median.steps.day <- median(sum.steps.date)
 ```
-The total number of missing values is: `r num.na`  
+ 
 The **mean** total number of steps per day is: `r mean.steps.day`  
 The **median** total number of steps per day is: `r median.steps.day`  
 Q: Do these values differ from the estimates from the first part of the assignment?    

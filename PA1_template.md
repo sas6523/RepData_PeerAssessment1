@@ -90,7 +90,13 @@ The 5-minute interval that contains the maximum number of steps: 835
 #Calculate and report the total number of missing values in the dataset 
 # (i.e. the total number of rows with NAs for steps)
 num.na <- sum(is.na(data$steps))
+```
+The total number of missing values is: 2304  
 
+In order to replace any NA values in the steps variable, we will scan the column for NA values, and then replace them with the mean value that corresponds to that time interval.
+
+
+```r
 # We are going to replace the NA's with the mean value for that time interval and
 # we will create a new dataset that is equal to the original dataset but with the missing 
 # data filled in. We will Keep the same name. 
@@ -108,14 +114,14 @@ hist(sum.steps.date, col="light blue", xlab="Sum of Steps Per Day",
      main="Frequency of the Sum of Steps per Day")
 ```
 
-![plot of chunk unnamed-chunk-4](figure/unnamed-chunk-4-1.png) 
+![plot of chunk unnamed-chunk-5](figure/unnamed-chunk-5-1.png) 
 
 ```r
 # Calculate and report the mean and median total number of steps taken per day. 
 mean.steps.day <- mean(sum.steps.date)
 median.steps.day <- median(sum.steps.date)
 ```
-The total number of missing values is: 2304  
+ 
 The **mean** total number of steps per day is: 1.0766189 &times; 10<sup>4</sup>  
 The **median** total number of steps per day is: 1.0766189 &times; 10<sup>4</sup>  
 Q: Do these values differ from the estimates from the first part of the assignment?    
@@ -155,6 +161,6 @@ xyplot(steps ~ interval | daytype, steps.day, type = "l", layout = c(1, 2),
        xlab = "Interval", ylab = "Number of steps")
 ```
 
-![plot of chunk unnamed-chunk-5](figure/unnamed-chunk-5-1.png) 
+![plot of chunk unnamed-chunk-6](figure/unnamed-chunk-6-1.png) 
 
 It does appear that differences exist between weekday and weekend activities. Weekends are punctuated by more intervals of higher than 100 mean steps. This indicates more activity. 
